@@ -71,20 +71,7 @@ namespace graphene { namespace chain {
       uint8_t                 max_authority_depth                 = GRAPHENE_MAX_SIG_CHECK_DEPTH;
       //uint8_t                 witness_schedule_algorithm          = GRAPHENE_WITNESS_SHUFFLED_ALGORITHM; ///< 0 shuffled, 1 scheduled
       uint8_t                 witness_schedule_algorithm          = GRAPHENE_WITNESS_SCHEDULED_ALGORITHM; ///< 0 shuffled, 1 scheduled
-      /* rps tournament parameters constraints */
-      uint32_t                min_round_delay                     = TOURNAMENT_MIN_ROUND_DELAY; ///< miniaml delay between games
-      uint32_t                max_round_delay                     = TOURNAMENT_MAX_ROUND_DELAY; ///< maximal delay between games
-      uint32_t                min_time_per_commit_move            = TOURNAMENT_MIN_TIME_PER_COMMIT_MOVE; ///< minimal time to commit the next move
-      uint32_t                max_time_per_commit_move            = TOURNAMENT_MAN_TIME_PER_COMMIT_MOVE; ///< maximal time to commit the next move
-      uint32_t                min_time_per_reveal_move            = TOURNAMENT_MIN_TIME_PER_REVEAL_MOVE; ///< minimal time to reveal move
-      uint32_t                max_time_per_reveal_move            = TOURNAMENT_MAX_TIME_PER_REVEAL_MOVE; ///< maximal time to reveal move
       uint16_t                rake_fee_percentage                 = TOURNAMENT_DEFAULT_RAKE_FEE_PERCENTAGE; ///< part of prize paid into the dividend account for the core token holders
-      uint32_t                maximum_registration_deadline       = TOURNAMENT_MAXIMAL_REGISTRATION_DEADLINE; ///< value registration deadline must be before
-      uint16_t                maximum_players_in_tournament       = TOURNAMENT_MAX_PLAYERS_NUMBER; ///< maximal count of players in tournament
-      uint16_t                maximum_tournament_whitelist_length = TOURNAMENT_MAX_WHITELIST_LENGTH; ///< maximal tournament whitelist length
-      uint32_t                maximum_tournament_start_time_in_future = TOURNAMENT_MAX_START_TIME_IN_FUTURE;
-      uint32_t                maximum_tournament_start_delay      = TOURNAMENT_MAX_START_DELAY;
-      uint16_t                maximum_tournament_number_of_wins   = TOURNAMENT_MAX_NUMBER_OF_WINS;
       extensions_type         extensions;
 
       /** defined in fee_schedule.cpp */
@@ -123,18 +110,6 @@ FC_REFLECT( graphene::chain::chain_parameters,
             (account_fee_scale_bitshifts)
             (max_authority_depth)
             (witness_schedule_algorithm)
-            (min_round_delay)
-            (max_round_delay)
-            (min_time_per_commit_move)
-            (max_time_per_commit_move)
-            (min_time_per_reveal_move)
-            (max_time_per_reveal_move)
             (rake_fee_percentage)
-            (maximum_registration_deadline)
-            (maximum_players_in_tournament)
-            (maximum_tournament_whitelist_length)
-            (maximum_tournament_start_time_in_future)
-            (maximum_tournament_start_delay)
-            (maximum_tournament_number_of_wins)
             (extensions)
           )

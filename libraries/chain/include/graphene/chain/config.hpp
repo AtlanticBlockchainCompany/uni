@@ -172,25 +172,13 @@
 /// Represents the canonical account for specifying you will vote directly (as opposed to a proxy)
 #define GRAPHENE_PROXY_TO_SELF_ACCOUNT (graphene::chain::account_id_type(5))
 ///
-#define TOURNAMENT_RAKE_FEE_ACCOUNT_ID (graphene::chain::account_id_type(6))
+#define DIVIDEND_ACCOUNT_ID (graphene::chain::account_id_type(6))
 /// Sentinel value used in the scheduler.
 #define GRAPHENE_NULL_WITNESS (graphene::chain::witness_id_type(0))
 ///@}
 
 #define GRAPHENE_FBA_STEALTH_DESIGNATED_ASSET (asset_id_type(743))
 
-#define TOURNAMENT_MIN_ROUND_DELAY                          0
-#define TOURNAMENT_MAX_ROUND_DELAY                          600
-#define TOURNAMENT_MIN_TIME_PER_COMMIT_MOVE                 0
-#define TOURNAMENT_MAN_TIME_PER_COMMIT_MOVE                 600
-#define TOURNAMENT_MIN_TIME_PER_REVEAL_MOVE                 0
-#define TOURNAMENT_MAX_TIME_PER_REVEAL_MOVE                 600
 #define TOURNAMENT_DEFAULT_RAKE_FEE_PERCENTAGE              (3*GRAPHENE_1_PERCENT)
 #define TOURNAMENT_MINIMAL_RAKE_FEE_PERCENTAGE              (1*GRAPHENE_1_PERCENT)
 #define TOURNAMENT_MAXIMAL_RAKE_FEE_PERCENTAGE              (20*GRAPHENE_1_PERCENT)
-#define TOURNAMENT_MAXIMAL_REGISTRATION_DEADLINE            (60*60*24*30) // seconds, 30 days
-#define TOURNAMENT_MAX_NUMBER_OF_WINS                       100
-#define TOURNAMENT_MAX_PLAYERS_NUMBER                       256
-#define TOURNAMENT_MAX_WHITELIST_LENGTH                     1000
-#define TOURNAMENT_MAX_START_TIME_IN_FUTURE                 (60*60*24*7*4) // 1 month
-#define TOURNAMENT_MAX_START_DELAY                          (60*60*24*7) // 1 week

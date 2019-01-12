@@ -33,6 +33,7 @@
 #include <boost/version.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/algorithm/string/replace.hpp>
+#include <boost/algorithm/string.hpp>
 #include <boost/multiprecision/integer.hpp>
 #include <boost/algorithm/string/join.hpp>
 
@@ -62,6 +63,7 @@
 #include <fc/thread/mutex.hpp>
 #include <fc/thread/scoped_lock.hpp>
 #include <fc/crypto/rand.hpp>
+#include <fc/string.hpp>
 
 #include <graphene/app/api.hpp>
 #include <graphene/chain/asset_object.hpp>
@@ -1179,6 +1181,38 @@ public:
    { try {
       account_object issuer_account = get_account( issuer );
       FC_ASSERT(!find_asset(symbol).valid(), "Asset with that symbol already exists!");
+
+      std::string house = "rent-";
+      std::string symbolHouse = boost::algorithm::to_lower_copy(symbol);
+
+      brain_key_info result;
+      // create a private key for secure entropy
+      fc::sha256 sha_entropy1 = fc::ecc::private_key::generate().get_secret();
+      fc::sha256 sha_entropy2 = fc::ecc::private_key::generate().get_secret();
+      fc::bigint entropy1( sha_entropy1.data(), sha_entropy1.data_size() );
+      fc::bigint entropy2( sha_entropy2.data(), sha_entropy2.data_size() );
+      fc::bigint entropy(entropy1);
+      entropy <<= 8*sha_entropy1.data_size();
+      entropy += entropy2;
+      string brain_key = "";
+
+      for( int i=0; i<BRAIN_KEY_WORD_COUNT; i++ )
+      {
+         fc::bigint choice = entropy % graphene::words::word_list_size;
+         entropy /= graphene::words::word_list_size;
+         if( i > 0 )
+            brain_key += " ";
+         brain_key += graphene::words::word_list[ choice.to_int64() ];
+      }
+
+      brain_key = normalize_brain_key(brain_key);
+      create_account_with_brain_key(
+         brain_key,
+         house + symbolHouse,
+         "abc",
+         "abc",
+         true
+      );
 
       asset_create_operation create_op;
       create_op.issuer = issuer_account.id;

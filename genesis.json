@@ -192,14 +192,23 @@
           }
         ],[
           44,{}
+        ],
+        [
+          45,{}
+        ],
+        [
+          46, {
+            "distribution_base_fee": 0,
+            "distribution_fee_per_holder": 0
+          }
         ]
       ],
       "scale": 10000
     },
     "block_interval": 3,
-    "maintenance_interval": 600,
+    "maintenance_interval": 300,
     "maintenance_skip_slots": 3,
-    "committee_proposal_review_period": 1200,
+    "committee_proposal_review_period": 600,
     "maximum_transaction_size": 2048,
     "maximum_block_size": 2048000000,
     "maximum_time_until_expiration": 86400,
@@ -281,7 +290,7 @@
       "active_key": "UNI6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": true
     },{
-      "name": "keegan",
+      "name": "abc",
       "owner_key": "UNI6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "active_key": "UNI6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
       "is_lifetime_member": false
